@@ -1,0 +1,343 @@
+PYTHON Programming Language
+•	Python is a high-level, general-purpose and a very popular programming language. 
+•	 It was created by Guido van Rossum, and released in 1991.
+Uses:-
+•	web development (server-side),
+•	software development,
+•	mathematics,
+•	system scripting.
+Why Python?
+•	Python works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).
+•	Python has a simple syntax similar to the English language.
+•	Python has syntax that allows developers to write programs with fewer lines than some other programming languages.
+Python Syntax
+print("Hello, World!")
+Python Indentation
+Indentation refers to the spaces at the beginning of a code line.
+if 5 > 2:
+  print("Five is greater than two!")
+Python Variables
+     x = 5
+     y = "Hello, World!"
+Comments
+Python has commenting capability for the purpose of in-code documentation.
+Comments start with a #, and Python will render the rest of the line as a comment:
+#This is a comment.
+print("Hello, World!")
+
+Multi Line Comments
+To add a multiline comment you could insert a # for each line:
+#This is a comment
+#written in
+#more than just one line
+print("Hello, World!")
+Since Python will ignore string literals that are not assigned to a variable, you can add a multiline string (triple quotes) in your code, and place your comment inside it:
+"""
+This is a comment
+written in
+more than just one line
+"""
+print("Hello, World!")
+
+
+
+Python Variables
+Variables are containers for storing data values.
+A variable is created the moment you first assign a value to it.
+Eg 1:
+x = 5
+y = "John"
+print(x)
+print(y)
+Eg 2:
+x = 4       # x is of type int
+x = "Sally" # x is now of type str
+print(x)
+Casting
+If you want to specify the data type of a variable, this can be done with casting.
+x = str(3)    # x will be '3'
+y = int(3)    # y will be 3
+z = float(3)  # z will be 3.0
+
+Get the Type
+You can get the data type of a variable with the type() function.
+x = 5
+y = "John"
+print(type(x))
+print(type(y))
+Single or Double Quotes
+String variables can be declared either by using single or double quotes:
+x = "John"
+# is the same as
+x = 'John'
+Case-Sensitive
+Variable names are case-sensitive
+a = 4
+A = "Sally"
+#A will not overwrite a
+Variable Names
+A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume).
+myvar = "John"
+my_var = "John"
+_my_var = "John"
+myVar = "John"
+MYVAR = "John"
+myvar2 = "John"
+
+
+
+
+
+
+
+
+
+
+
+Multi Words Variable Names
+Variable names with more than one word can be difficult to read.
+There are several techniques you can use to make them more readable:
+Camel Case
+Each word, except the first, starts with a capital letter:
+myVariableName = "John"
+Pascal Case
+Each word starts with a capital letter:
+MyVariableName = "John"
+Snake Case
+Each word is separated by an underscore character:
+my_variable_name = "John"
+Variables - Assign Multiple Values
+Many Values to Multiple Variables
+x, s, t = "Orange", "Banana", "Cherry"
+print(x)
+print(s)
+print(t)
+One Value to Multiple Variables
+x = y = z = "Orange"
+print(x)
+print(y)
+print(z)
+Output Variables
+The Python print statement is often used to output variables
+
+x = "awesome"
+print("Python is " + x)
+
+You can also use the + character to add a variable to another variable:
+
+x = "Python is "
+y = "awesome"
+z =  x + y
+print(z)
+
+For numbers, the + character works as a mathematical operator:
+
+x = 5
+y = 10
+print(x + y)
+
+If you try to combine a string and a number, Python will give you an error:
+
+x = 5
+y = "John"
+print(x + y)
+
+
+
+
+
+
+
+
+
+
+
+Global Variables
+Variables that are created outside of a function (as in all of the examples above) are known as global variables.
+Create a variable outside of a function, and use it inside the function
+
+x = "awesome"
+
+def myfunc():
+  print("Python is " + x)
+
+myfunc()
+
+Create a variable inside a function, with the same name as the global variable
+
+x = "awesome"
+
+def myfunc():
+  x = "fantastic"
+  print("Python is " + x)
+
+myfunc()
+
+print("Python is " + x)
+
+
+
+
+
+
+
+
+To create a global variable inside a function, you can use the global keyword.
+
+If you use the global keyword, the variable belongs to the global scope:
+
+def myfunc():
+  global x
+  x = "fantastic"
+
+myfunc()
+
+print("Python is " + x)
+
+To change the value of a global variable inside a function, refer to the variable by using the global keyword:
+
+x = "awesome"
+
+def myfunc():
+  global x
+  x = "fantastic"
+
+myfunc()
+
+print("Python is " + x)
+
+
+
+
+Python Data Types
+Built-in Data Types
+Variables can store data of different types, and different types can do different things.
+Python has the following data types built-in by default, in these categories:
+Text Type:	str
+Numeric Types:	int, float, complex
+Sequence Types:	list, tuple, range
+Mapping Type:	dict
+Set Types:	set, frozenset
+Boolean Type:	bool
+Binary Types:	bytes, bytearray, memoryview
+Setting the Data Type
+In Python, the data type is set when you assign a value to a variable:
+
+
+
+
+
+
+Example	Data Type
+x = "Hello World"	str
+x = 20	int
+x = 20.5	float
+x = 1j	complex
+x = ["apple", "banana", "cherry"]	list
+x = ("apple", "banana", "cherry")	tuple
+x = range(6)	range
+x = {"name" : "John", "age" : 36}	dict
+x = {"apple", "banana", "cherry"}	set
+x = frozenset({"apple", "banana", "cherry"})	frozenset
+x = True	bool
+x = b"Hello"	bytes
+x = bytearray(5)	bytearray
+x = memoryview(bytes(5))	memoryview
+
+
+Setting the Specific Data Type
+If you want to specify the data type, you can use the following constructor functions:
+Example	Data Type
+x = str("Hello World")	str
+x = int(20)	int
+x = float(20.5)	float
+x = complex(1j)	complex
+x = list(("apple", "banana", "cherry"))	list
+x = tuple(("apple", "banana", "cherry"))	tuple
+x = range(6)	range
+x = dict(name="John", age=36)	dict
+x = set(("apple", "banana", "cherry"))	set
+x = frozenset(("apple", "banana", "cherry"))	frozenset
+x = bool(5)	bool
+x = bytes(5)	bytes
+x = bytearray(5)	bytearray
+x = memoryview(bytes(5))	memoryview
+
+Python Numbers
+There are three numeric types in Python:
+•	int
+•	float
+•	complex
+Variables of numeric types are created when you assign a value to them:
+Example
+x = 1    # int
+y = 2.8  # float
+z = 5j  # complex
+Python Casting
+Specify a Variable Type
+There may be times when you want to specify a type on to a variable. This can be done with casting. Python is an object-orientated language, and as such it uses classes to define data types, including its primitive types.
+Casting in python is therefore done using constructor functions:
+•	int() - constructs an integer number from an integer literal, a float literal (by removing all decimals), or a string literal (providing the string represents a whole number)
+•	float() - constructs a float number from an integer literal, a float literal or a string literal (providing the string represents a float or an integer)
+•	str() - constructs a string from a wide variety of data types, including strings, integer literals and float literals
+Example
+Integers:
+x = int(1)   # x will be 1
+y = int(2.8) # y will be 2
+z = int("3") # z will be 3
+
+Floats:
+x = float(1)     # x will be 1.0
+y = float(2.8)   # y will be 2.8
+z = float("3")   # z will be 3.0
+w = float("4.2") # w will be 4.2
+
+Strings:
+x = str("s1") # x will be 's1'
+y = str(2)    # y will be '2'
+z = str(3.0)  # z will be '3.0'
+
+
+List
+Lists are used to store multiple items in a single variable.
+Lists are one of 4 built-in data types in Python used to store collections of data
+Lists are created using square brackets:
+Example
+Create a List:
+thislist = ["apple", "banana", "cherry"]
+print(thislist)
+ppend Items
+To add an item to the end of the list, use the append() method:
+Example
+Using the append() method to append an item:
+thislist = ["apple", "banana", "cherry"]
+thislist.append("orange")
+print(thislist)
+________________________________________
+Insert Items
+To insert a list item at a specified index, use the insert() method.
+The insert() method inserts an item at the specified index:
+Example
+Insert an item as the second position:
+thislist = ["apple", "banana", "cherry"]
+thislist.insert(1, "orange")
+print(thislist)
+________________________________________
+Extend List
+To append elements from another list to the current list, use the extend() method.
+Example
+Add the elements of tropical to thislist:
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+thislist.extend(tropical)
+print(thislist)
+The elements will be added to the end of the list.
+________________________________________
+Add Any Iterable
+The extend() method does not have to append lists, you can add any iterable object (tuples, sets, dictionaries etc.).
+Example
+Add elements of a tuple to a list:
+thislist = ["apple", "banana", "cherry"]
+thistuple = ("kiwi", "orange")
+thislist.extend(thistuple)
+print(thislist)
