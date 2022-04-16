@@ -1,0 +1,287 @@
+'''
+WeCare insurance company wants to calculate premium of vehicles.
+Vehicles are of two types – "Two Wheeler" and "Four Wheeler". Each vehicle is identified by vehicle id, type, cost and premium amount.
+Premium amount is 2% of the vehicle cost for two wheelers and 6% of the vehicle cost for four wheelers. 
+Calculate the premium amount and display the vehicle details.
+Identify the class name and attributes to represent vehicles. 
+•	calculate_premium()
+•	vehicle_cost
+•	TwoWheeler
+•	vehicle_type
+•	vehicle_id
+•	Vehicle
+•	premium_amount
+•	FourWheeler
+•	calculate_vehicle_cost()
+•	__init__()
+•	display_vehicle_details()
+Write a Python program to implement the class chosen with its attributes and methods.
+Note:
+1.	Consider all instance variables to be private and methods to be public
+2.	Include getter and setter methods for all instance variables
+3.	Display appropriate error message, if the vehicle type is invalid
+4.	Perform case sensitive string comparison
+Represent few objects of the class, initialize instance variables using setter methods, invoke appropriate methods and test your program.
+
+'''
+
+class Vehicle:
+    def __init__(self):
+        self.__vehicle_cost=None
+        self.__vehicle_id=None
+        self.__vehicle_type=None
+        self.__premium_amount=None
+
+    def set_vehicle_cost(self,vehicle_cost):
+        self.__vehicle_cost=vehicle_cost
+
+    def set_vehicle_id(self,vehicle_id):
+        self.__vehicle_id=vehicle_id
+
+    def set_premium_amount(self,premium_amount):
+        self.__premium_amount=premium_amount
+
+    def set_vehicle_type(self,vehicle_type):
+        if check_type(vehicle_type):
+            self.__vehicle_type=vehicle_type
+        else:
+            return "Invalid vehicle type"
+
+    def get_vehicle_cost(self):
+        return self.__vehicle_cost
+
+    def get_vehicle_id(self):
+        return self.__vehicle_id
+
+    def get_vehicle_type(self):
+        return self.__vehicle_type
+
+    def get_premium_amount(self):
+        return self.__premium_amount
+
+    def calculate_premium(self):
+        if self.__vehicle_type=='Twowheeler':
+            self.__premium_amount=self.__vehicle_cost*(2/100)
+        elif self.__vehicle_type=='Fourwheeler':
+            self.__premium_amount=self.__vehicle_cost*(6/100)
+        else:
+            print("invalid vehicle type")
+
+    def display_vehicle_details(self):
+        print("premium amount= ",self.__premium_amount)
+        print(self.__vehicle_cost)
+
+def check_type(type):
+    vehicle_type=['Twowheeler','Fourwheeler']
+    if type not in vehicle_type:
+        return 0
+    return 1
+
+v=Vehicle()
+v.set_vehicle_cost(105000)
+v.set_vehicle_type('Twowheeler')
+v.set_vehicle_id(100)   
+v.calculate_premium()
+v.display_vehicle_details()
+print(v.get_vehicle_id())
+print(v.get_vehicle_type())
+
+'''
+A university wants to automate their admission process. Students are admitted based on marks scored in a qualifying exam.
+A student is identified by student id, age and marks in qualifying exam. Data are valid, if:
+
+Age is greater than 20
+Marks is between 0 and 100 (both inclusive)
+A student qualifies for admission, if
+
+Age and marks are valid and
+Marks is 65 or more
+Write a python program to represent the students seeking admission in the university.
+
+The details of student class are given below.
+
+Class name: Student
+
+Attributes
+(private)               student_id
+                        marks
+                        age
+
+Methods
+(public)
+
+__init__()                  Create and initialize all instance variables to None
+
+validate_marks()            If data is valid, return true. Else, return false
+
+validate_age()
+
+check_qualification()        Validate marks and age.
+                             If valid, check if marks is 65 or more.
+                             If so return true
+                             Else return false
+                              Else return false
+
+setter methods                Include setter methods for all instance variables to set its values
+
+getter methods                Include getter methods for all instance variables to get its values
+'''
+
+class Student:
+    def __init__(self):
+        self.__student_id=None
+        self.__marks=None
+        self.__age=None
+
+    def validate_marks(self):
+        if self.__marks>=0 and self.__marks<=100:
+            return True
+        else:
+            return False
+
+    def validate_age(self):
+        if self.__age>20:
+            return True
+        else:
+            return False
+
+    def check_qualification(self):
+        if self.validate_age() and self.validate_marks():
+            if self.__marks>=65:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    def set_student_id(self,student_id):
+        self.__student_id=student_id
+
+    def set_marks(self,marks):
+        self.__marks=marks
+
+    def set_age(self,age):
+        self.__age=age
+
+    def get_student_id(self):
+        return self.__student_id
+
+    def get_marks(self):
+        return self.__marks
+
+    def get_age(self):
+        return self.__age
+
+s=Student()
+s.set_student_id(10)
+s.set_marks(80)
+s.set_age(25)
+print(s.get_student_id())
+print(s.get_age())
+print(s.get_marks())
+print(s.check_qualification())
+
+'''
+Continuing with the previous scenario, a student eligible for admission has to choose a course and pay the fees for it. 
+If they have scored more than 85 marks in qualifying exam, they get 25% discount on fees.
+
+Valid course ids and fees are given below:
+course id	fees
+1001	    25575.0
+1002	   15500.0
+
+Extend the program written in the previous assignment to include the above requirement.
+Instance variables and methods to be included in Student class are given below.
+Class name: Student
+Attributes
+(private)	course_id
+            fees	 
+
+Methods
+(public)	
+__init__()	               Create and initialize newly created instance variables also to None
+
+choose_course(course_id)	 Accept the course_id chosen by the student.
+                             •	If course_id is valid,
+                              o	set attributes course_id and fees
+                            o	if marks is more than 85, apply 25% discount on fees
+                            o	return true
+                            •	Else, return false
+
+getter methods	             Include getter methods for newly added instance variables
+
+'''
+courses={1001:25575.0,1002:15500.0}
+class Student:
+    def __init__(self):
+        self.__student_id=None
+        self.__marks=None
+        self.__age=None
+        self.__course_id=None
+        self.__fees=None
+
+    def validate_marks(self):
+        if self.__marks>=0 and self.__marks<=100:
+            return True
+        else:
+            return False
+
+    def validate_age(self):
+        if self.__age>20:
+            return True
+        else:
+            return False
+
+    def check_qualification(self):
+        if self.validate_age() and self.validate_marks():
+            if self.__marks>=65:
+                return True
+            else:
+                return False
+        else:
+            return False
+
+    def choose_course(self,course_id):
+        if course_id in courses.keys():
+            self.__course_id=course_id
+            if self.__marks>=85:
+                self.__fees=courses[course_id]*0.75
+                print("fees: ",self.__fees)
+                return True
+            else:
+                return False
+        return False
+
+    def set_student_id(self,student_id):
+        self.__student_id=student_id
+
+    def set_marks(self,marks):
+        self.__marks=marks
+
+    def set_age(self,age):
+        self.__age=age
+
+    def get_student_id(self):
+        return self.__student_id
+
+    def get_marks(self):
+        return self.__marks
+
+    def get_age(self):
+        return self.__age
+
+    def get_course_id(self):
+        return self.__course_id
+
+    def get_fees(self):
+        return self.__fees
+
+s=Student()
+s.set_student_id(10)
+s.set_marks(85)
+s.set_age(25)
+print(s.get_student_id())
+print(s.get_age())
+print(s.get_marks())
+print(s.check_qualification())
+print(s.choose_course(1002))
