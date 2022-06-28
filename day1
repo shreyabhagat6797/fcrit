@@ -1,0 +1,136 @@
+'''
+Apparel oop A4
+'''
+
+class Apparel:
+    counter=100
+    def __init__(self,price,item_type):
+        self.__item_type=item_type
+        self.__price=price
+        self.__item_id=item_type[0].upper()+str(Apparel.counter+1)
+        Apparel.counter+=1
+
+    def set_price(self,price):
+        self.__price=price
+
+    def get_price(self):
+        return self.__price
+
+    def get_item_type(self):
+        return self.__item_type
+
+    def get_item_id(self):
+        return self.__item_id
+
+    def calculate_price(self):
+        self.__price*=1.05
+
+class Cotton(Apparel):
+    def __init__(self,price,discount):
+        self.__discount=discount
+        Apparel.__init__(self,price,"Cotton")  #invoking parent constructor
+
+    def get_discount(self):
+        return self.__discount
+
+    def calculate_price(self):
+        Apparel.calculate_price(self)
+        price=Apparel.get_price(self)
+        price*=(1-((self.__discount)/100))
+        price*=1.05
+        Apparel.set_price(self,price)
+        return price
+
+class Silk(Apparel):
+    def __init__(self,price):
+        self.__points=0
+        Apparel.__init__(self,price,"Silk")
+
+    def get_points(self):
+        return self.__points
+
+    def calculate_price(self):
+        Apparel.calculate_price(self)
+        price=Apparel.get_price(self)
+        if price>10000:
+            self.__points+=10
+        else:
+            self.__points+=3
+        price*=1.10
+        Apparel.set_price(self,price)
+        return price
+        
+c=Cotton(1320,35)
+s=Silk(1320)
+print(c.calculate_price())
+print(s.calculate_price())
+print(s.get_points())
+
+'''
+Coorg fruit farm oop A4
+'''
+
+class FruitInfo:
+    fruit_name_list=["Apple","Guava","Orange","Grape","SweetLime"]
+    fruit_price_list=[200,80,70,110,60]
+
+    def get_fruit_price_list():
+        return FruitInfo.fruit_price_list
+
+    def get_fruit_name_list():
+        return FruitInfo.fruit_name_list
+
+    def get_fruit_price(fruit_name):
+        if fruit_name.title() in FruitInfo.fruit_name_list:
+            return FruitInfo.fruit_price_list[FruitInfo.fruit_name_list.index(fruit_name.title())]
+
+class Purchase:
+    counter=101
+    def __init__(self,customer,fruit_name,quantity):
+        self.__purchase_id=None
+        self.__customer=customer
+        self.__fruit_name=fruit_name
+        self.__quantity=quantity
+
+    def get_purchase_id(self):
+        return self.__purchase_id
+
+    def get_customer(self):
+        return self.__customer
+
+    def get_fruit_name(self):
+        return self.__fruit_name
+
+    def get_quantity(self):
+        return self.__quantity
+
+    def calculate_price(self):
+        each_fruit_price=FruitInfo.get_fruit_price(self.__fruit_name)
+        if each_fruit_price>0:
+            self.__purchase_id='P'+str(Purchase.counter)
+            Purchase.counter+=1
+            price=each_fruit_price*self.__quantity
+            if each_fruit_price==max(FruitInfo.get_fruit_price_list()) and self.__quantity>1:
+                price*=0.98
+            if each_fruit_price==min(FruitInfo.get_fruit_price_list()) and self.__quantity>=5:
+                price*=0.95
+            if Customer.get_cust_type(self.__customer)=='Wholesale':
+                price*=0.90
+            return price
+        else:
+            return -1
+
+class Customer:
+    def __init__(self,customer_name,cust_type):
+        self.__customer_name=customer_name
+        self.__cust_type=cust_type
+
+    def get_customer_name(self):
+        return self.__customer_name
+
+    def get_cust_type(self):
+        return self.__cust_type
+
+c=Customer("ABC","Wholesale")
+p=Purchase(c,"Apple",5)
+print(p.calculate_price())
