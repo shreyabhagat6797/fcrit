@@ -1,4 +1,4 @@
-'''class Stack:
+class Stack:
     def __init__(self,max_size):
         self.__max_size=max_size
         self.__top=-1
@@ -50,7 +50,7 @@ s.push('a')
 s.display()
 print("-----")
 s.pop()
-s.display()'''
+s.display()
 
 
 '''
